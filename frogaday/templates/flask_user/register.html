@@ -1,0 +1,25 @@
+{% extends "sub_layout.html" %}
+{% from "_formhelpers.html" import render_field, render_submit_field %}
+
+{% block title %}Register - Frog.a.Day{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <header class="header">
+            <h1 id="title" class="text-center">Register</h1>
+        </header>
+
+        <form action="" method="POST" novalidate formnovalidate class="form" role="form">
+            {{ form.hidden_tag() }}
+
+            {{ render_field(form.username, autofocus="autofocus") }}
+            {{ render_field(form.password) }}
+            {{ render_field(form.retype_password) }}
+            {{ render_submit_field(form.submit) }}
+
+            <a href="{{ url_for('user.login') }}">Already registered? Sign in.</a>
+        </form>
+
+    </div>
+{% endblock %}

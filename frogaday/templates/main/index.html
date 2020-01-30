@@ -1,0 +1,22 @@
+{% extends 'main_layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+                <form method="POST">
+                <h1 class="hero-title">
+                    {% set display = goal if goal else "Click me!" %}
+                    <a href="{{ url_for('sub.edit') }}" {% if complete %} class="complete" {% endif %}>
+                        {{ display|e }}
+                    </a>
+                    {% if goal %}
+                        {% if complete %}
+                        <button type="submit" class="not-a-button complete hero-title">&#x1F5F9;</button>
+                        {% else %}
+                        <button type="submit" class="not-a-button hero-title">&#x2610;</button>
+                        {% endif %}
+                    {% endif %}
+                </h1>
+                </form>
+                <p>{{ date.strftime("%A, %B %d, %Y") }}</p>
+{% endblock %}

@@ -1,0 +1,134 @@
+:root {
+    --green-4: #64A64A;
+    --green-3: #7BB661;
+    --green-2: #B8DFA8;
+    --green-1: #CDE7C9;
+    --green-0: #F0F8EF;
+    --black: #222318;
+    --white: #FAFCF7;
+    --yellow: #E9BD43;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'PT Sans Caption',"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 3vh;
+}
+
+#header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    background-color: var(--green-4);
+    border-bottom: 2px solid var(--green-2);
+}
+
+#login {
+  text-decoration: none;
+  color: var(--green-0);
+  font-weight: bold;
+  padding: 0 1em;
+}
+   
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-color: var(--green-0);
+    background-size: cover;
+}
+
+main {
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 1em 2em;
+    color: var(--black);
+}
+
+blockquote {
+    border-radius: 3px;
+    position: relative;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 1.2rem;
+    width: 80%;
+    margin: 2rem auto 4rem;
+    background-color: var(--green-2);
+}
+
+#hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    background-color: var(--green-4);
+    border-top: 2px solid var(--green-2);
+}
+
+#logo {
+    text-decoration: none;
+    color: var(--green-0);
+    font-size: 5vh;
+    font-weight: bold;
+    padding: 0 1em;
+}
+
+nav {
+    padding: 0 1em;
+}
+
+.button {
+    padding: .5em .67em;
+    color: var(--green-0);
+    text-decoration: none;
+    border: .1em solid var(--green-0)
+
+}
+    
+.button-primary {
+    color: black;
+    background-color: var(--green-0);
+}
+
+header a:hover, footer a:hover {
+    transform: scale(1.1);
+}
+
+nav a:hover {
+    background-color: var(--yellow);
+}
+
+@media only screen and (max-width: 650px) {
+    #logo { 
+        font-size: 3vh; 
+    }
+
+    .button {
+        font-size: 2vh;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 1s linear 2s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity:1; }
+    100% { opacity:0; height: 0; padding: 0; }
+}

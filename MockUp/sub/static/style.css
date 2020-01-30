@@ -1,0 +1,118 @@
+:root {
+    --light-olive-drab: #7FB514;
+    --dark-olive-drab: #537E14;
+    --tan: #CEC9AE;
+    --dark-tan: #7E7B59;
+    --black: #222318;
+    --white: #FAFCF7;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'PT Sans Caption',"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 3vh;
+}
+
+#header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    background-color: var(--dark-olive-drab);
+    border-bottom: 2px solid var(--dark-tan);
+}
+
+#login {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 0 1em;
+}
+    
+   
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: white;
+    background-color: var(--white);
+    background-size: cover;
+    
+}
+
+main {
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 1em 2em;
+    color: var(--black);
+}
+
+blockquote {
+    border-radius: 3px;
+    position: relative;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 1.2rem;
+    width: 80%;
+    margin: 2rem auto 4rem;
+    background: #E8E8E8;
+}
+
+#hero-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    background-color: var(--dark-olive-drab);
+    border-top: 2px solid ;
+}
+
+#logo {
+    text-decoration: none;
+    color: white;
+    font-size: 5vh;
+    font-weight: bold;
+    padding: 0 1em;
+}
+
+nav {
+    padding: 0 1em;
+}
+
+.button {
+    padding: .5em .67em;
+    color: white;
+    text-decoration: none;
+    border: .1em solid white;
+
+}
+    
+.button-primary {
+    color: black;
+    background-color: white;
+}
+
+@media only screen and (max-width: 650px) {
+    #logo { 
+        font-size: 3vh; 
+    }
+
+    .button {
+        font-size: 2vh;
+    }
+}

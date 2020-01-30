@@ -1,0 +1,43 @@
+{% macro render_field(field, label=None, label_visible=true) -%}
+    <div class="form-group">
+        {% if field.type != 'HiddenField' and label_visible %}
+            {% if not label %}{% set label=field.label.text %}{% endif %}
+            <label for="{{ field.id }}">{{ label|safe }}</label>
+        {% endif %}
+        {{ field(class_='form-control', **kwargs) }}
+        {% if field.errors %}
+            {% for e in field.errors %}
+                <p class="help-block">{{ e }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+{%- endmacro %}
+ 
+{% macro render_submit_field(field, label=None) -%}
+    {% if not label %}{% set label=field.label.text %}{% endif %}
+        <div class="form-group">
+            <button type="submit" class="submit-button">{{label}}</button>
+        </div>
+{%- endmacro %}
+
+{# Still to be reviewed #}
+
+{% macro render_checkbox_field(field, label=None) -%}
+    {% if not label %}{% set label=field.label.text %}{% endif %}
+    <div class="checkbox">
+        <label>
+            {{ field(type='checkbox', **kwargs) }} {{ label }}
+        </label>
+    </div>
+{%- endmacro %}
+ 
+{% macro render_radio_field(field) -%}
+    {% for value, label, checked in field.iter_choices() %}
+        <div class="radio">
+            <label>
+                <input type="radio" name="{{ field.id }}" id="{{ field.id }}" value="{{ value }}"{% if checked %} checked{% endif %}>
+                {{ label }}
+            </label>
+        </div>
+    {% endfor %}
+{%- endmacro %}
