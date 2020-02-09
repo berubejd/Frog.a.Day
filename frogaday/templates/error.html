@@ -1,0 +1,17 @@
+{% extends "sub_layout.html" %}
+
+{% block title %}A frog? - Frog.a.Day{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <header class="header text-center">
+            <i class="fas fa-frog" style="color: #64A64A; font-size: 32vh; margin-bottom: .5em;"></i>
+            <p>Hmmm, something went frog.</p>
+            <p>Whatever you were looking for isn't here, though.</p>
+            <a href="{{ url_for('main.index') }}">Back Home</a>
+        </header>
+
+        <script src="https://kit.fontawesome.com/ab31ce7e18.js" crossorigin="anonymous"></script>
+    </div>
+{% endblock %}

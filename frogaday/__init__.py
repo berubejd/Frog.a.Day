@@ -1,11 +1,15 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_user import UserManager
 
 db = SQLAlchemy()
+
+
+def not_found(e):
+    return render_template("error.html"), 404
 
 
 def create_app(test_config=None):
@@ -46,6 +50,9 @@ def create_app(test_config=None):
         os.makedirs(app.instance_path)
     except OSError:
         pass
+
+    # Register Error Handlers
+    app.register_error_handler(404, not_found)
 
     # Setup the DB using SQLAlchemy
     db.init_app(app)
