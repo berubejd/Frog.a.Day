@@ -47,9 +47,14 @@ body {
     padding: 1em;
     box-sizing: border-box;
     color: var(--white);
-    background: url('water-lily-1287416_1920.jpg') center center no-repeat;
+    background: url('water-lily-1287416_compressed.jpg') center center no-repeat;
     background-size: cover;
     
+}
+
+.hero-header {
+    display: flex;
+    flex-direction: column;
 }
 
 .flash {
@@ -65,9 +70,9 @@ body {
 .hero-title {
     max-width: 16em;
     margin: 0;
-    font-size: 12vh;
+    font-size: 16vh;
     font-weight: bold;
-    line-height: .9;
+    line-height: 1;
     text-align: center;
     text-shadow: 2px 5px 5px rgba(0,0,0,.8);
 }
@@ -89,6 +94,12 @@ body {
     font-weight: bold;
     text-align: center;
     text-shadow: 2px 5px 5px rgba(0,0,0,.8);
+}
+
+#subtitle {
+    font-size: 4.5vh;
+    color: var(--yellow);
+    margin-bottom: -3rem;
 }
 
 .hero-footer {
@@ -126,10 +137,34 @@ nav a:hover {
     background-color: var(--yellow);
 }
 
-@media only screen and (min-width: 32em) {
+/* @media only screen and (min-width: 32em) {
     .hero-title { 
         font-size: 16vh; 
     } 
+} */
+
+@media only screen and (max-width: 700px) {
+    .hero-title { 
+        font-size: 12vh; 
+    }
+
+    #subtitle {
+        font-size: 3vh;
+    }
+
+    #logo { 
+        font-size: 3vh;
+    }
+
+    .button {
+        font-size: 2vh;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #subtitle {
+        margin-bottom: 0;
+    }
 }
 
 .fade-out {

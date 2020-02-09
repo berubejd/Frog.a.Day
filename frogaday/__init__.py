@@ -11,11 +11,24 @@ db = SQLAlchemy()
 def create_app(test_config=None):
     # Create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY=os.environ['SECRET_KEY'],
-        SQLALCHEMY_DATABASE_URI="".join(
+
+    if 'RDS_HOSTNAME' in os.environ:
+        NAME = os.environ['RDS_DB_NAME']
+        USER = os.environ['RDS_USERNAME']
+        PASSWORD = os.environ['RDS_PASSWORD']
+        HOST = os.environ['RDS_HOSTNAME']
+        PORT = os.environ['RDS_PORT']
+
+        database_url = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{NAME}"
+    else:
+        database_url = "".join(
             ["sqlite:///", app.instance_path, "/", "frogaday.sqlite"]
-        ),
+        )
+
+
+    app.config.from_mapping(
+        SECRET_KEY = os.environ.get("SECRET_KEY") or "secret_key",
+        SQLALCHEMY_DATABASE_URI = database_url,
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
         USER_APP_NAME="Frog.a.Day",
         USER_ENABLE_EMAIL=False,
@@ -24,10 +37,7 @@ def create_app(test_config=None):
         USER_REQUIRE_RETYPE_PASSWORD=True,
     )
 
-    if test_config is None:
-        # Load the instance config, if it exists, when not testing
-        app.config.from_pyfile("config.py", silent=True)
-    else:
+    if test_config:
         # Load the test config if passed in
         app.config.from_mapping(test_config)
 

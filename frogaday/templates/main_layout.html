@@ -3,11 +3,21 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% block title %}{% endblock %} - Frog.a.Day</title>
-        <meta name="description" content="">
+        <title>{% block title %}{% endblock %} - Frog.a.Day - Track your most important task every day!</title>
+        <meta name="description" content="Frog.a.Day provides it's users a way to track the single most important task of the day and visualize their progress.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ url_for('static', filename='main/style.css') }}">
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157439805-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-157439805-1');
+        </script>
+        <!-- Google AdSense -->
+        <script data-ad-client="ca-pub-4063479605554467" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
     <body>
         <section class="hero">
@@ -17,13 +27,15 @@
                 {% else %}
                     <a id="login" href="{{ url_for('user.login') }}">Log In / Register</a>
                 {% endif %}
-            </header>  
+            </header>
+
             <main class="hero-header">
                 {% for message in get_flashed_messages() %}
                     <div class="flash fade-out">{{ message }}</div>
                 {% endfor %}
                 {% block content %}{% endblock %}
             </main>
+            
             <footer class="hero-footer">
                 <a id="logo" href="{{ url_for('main.index') }}">Frog.a.Day</a>
                 <nav>

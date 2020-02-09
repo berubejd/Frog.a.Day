@@ -2,5 +2,6 @@ bs4==0.0.1
 Flask==1.1.1
 Flask-Migrate==2.5.2
 Flask-SQLAlchemy==2.4.1
-Flask-User==1.0.2.2
+PyMySQL==0.9.3
+Flask-User-AWS==1.0.1.7
 Flask-WTF==0.14.2

@@ -13,18 +13,10 @@ class User(db.Model, UserMixin):
     # User authentication information. The collation='NOCASE' is required
     # to search case insensitively when USER_IFIND_MODE is 'nocase_collation'.
     username = db.Column(
-        db.String(100, collation="NOCASE"), nullable=False, unique=True
+        db.String(100), nullable=False, unique=True
     )
     password = db.Column(db.String(255), nullable=False, server_default="")
     email_confirmed_at = db.Column(db.DateTime())
-
-    # User information
-    first_name = db.Column(
-        db.String(100, collation="NOCASE"), nullable=False, server_default=""
-    )
-    last_name = db.Column(
-        db.String(100, collation="NOCASE"), nullable=False, server_default=""
-    )
 
     user_goals = db.relationship("Goal", backref="user")
 
