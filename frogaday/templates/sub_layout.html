@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +18,9 @@
             gtag('js', new Date());
             gtag('config', 'UA-157439805-1');
         </script>
-        <!-- Google AdSense -->
-        <script data-ad-client="ca-pub-4063479605554467" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
     <body>
-        <section class="hero">
+        <div class="hero">
             <header id="header">
                 {% if call_or_get(current_user.is_authenticated) %}
                     <a id="login" href="{{ url_for('user.logout') }}">Log Out</a>
@@ -45,6 +43,6 @@
                     <a class="button" href="{{ url_for('sub.about') }}">About</a>
                 </nav>
             </footer>
-        </section>
+        </div>
     </body>
 </html>
