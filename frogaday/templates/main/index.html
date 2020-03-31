@@ -5,7 +5,7 @@
 {% block content %}
                 <form method="POST">
                 <h1 class="hero-title">
-                    {% set display = goal if goal else "Click me!" %}
+                    {% set display = goal if goal else "Click to set Goal!" %}
                     <a href="{{ url_for('sub.edit') }}" {% if complete %} class="complete" {% endif %}>
                         {{ display|e }}
                     </a>

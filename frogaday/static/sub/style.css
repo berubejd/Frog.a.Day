@@ -29,14 +29,14 @@ body {
 
 #header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     height: 50px;
     background-color: var(--green-4);
     border-bottom: 2px solid var(--green-2);
 }
 
-#login {
+#home, #login {
   text-decoration: none;
   color: var(--green-0);
   font-weight: bold;
